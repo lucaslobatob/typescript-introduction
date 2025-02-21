@@ -1,0 +1,12 @@
+"use strict";
+let precoProduto;
+precoProduto = 20;
+precoProduto = "20";
+precoProduto = true;
+let nota1;
+let nota2;
+nota1 = 10;
+nota1 = "10";
+nota2 = 5;
+console.log(precoProduto);
+console.log(nota1 + nota2);
