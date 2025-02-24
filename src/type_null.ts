@@ -1,4 +1,4 @@
-// Type Null
+// Type Null and undefined
 
 let nome: string | null;
 
