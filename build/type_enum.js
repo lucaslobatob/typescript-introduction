@@ -8,9 +8,9 @@ console.log(DesignColors.white);
 console.log(DesignColors.black);
 var StatusPermission;
 (function (StatusPermission) {
-    StatusPermission[StatusPermission["ADMIN"] = 0] = "ADMIN";
-    StatusPermission[StatusPermission["USER"] = 1] = "USER";
-    StatusPermission[StatusPermission["SUPPORT"] = 2] = "SUPPORT";
+    StatusPermission[StatusPermission["ADMIN"] = 1] = "ADMIN";
+    StatusPermission[StatusPermission["USER"] = 2] = "USER";
+    StatusPermission[StatusPermission["SUPPORT"] = 0] = "SUPPORT";
 })(StatusPermission || (StatusPermission = {}));
 console.log(StatusPermission.ADMIN);
 console.log(StatusPermission.USER);

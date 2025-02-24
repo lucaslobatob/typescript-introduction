@@ -9,9 +9,9 @@ console.log(DesignColors.white);
 console.log(DesignColors.black);
 
 enum StatusPermission {
-  ADMIN,
-  USER,
-  SUPPORT,
+  ADMIN = 1,
+  USER = 2,
+  SUPPORT = 0,
 }
 
 console.log(StatusPermission.ADMIN);
