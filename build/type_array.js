@@ -1,0 +1,11 @@
+"use strict";
+let numbers;
+numbers = [1, 2, 3, 4, 5];
+console.log(numbers);
+numbers.push(55);
+console.log("Meus numeros: ", numbers);
+let movies;
+movies = ["Batman", "Superman", "Homem de Ferro"];
+console.log(movies);
+movies.push("Homem Aranha");
+console.log("Meus filmes: ", movies);
