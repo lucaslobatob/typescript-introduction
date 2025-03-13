@@ -4,10 +4,28 @@ class Loja {
         this.nome = nome;
         this.categoria = categoria;
     }
+    criarLoja() {
+        console.log(`Loja ${this.nome}, categoria: ${this.categoria} criado com sucesso!`);
+    }
+    emitirPedido(mesa, ...pedidos) {
+        pedidos.map((pedido) => {
+            console.log(`Saindo novo pedido: ${pedido}`);
+        });
+        return `Pedido da mesa ${mesa} emitido com sucesso!`;
+    }
+    mudarStatus(status) {
+        if (status === "ABERTO") {
+            console.log("Loja aberta");
+        }
+        else {
+            console.log("Loja fechada");
+        }
+    }
 }
 const redBurguer = new Loja("Red Burguer", "Fast Food");
-const suco = new Loja("Suco do Bairro", "Lanchonete");
 console.log(`Nome da loja: ${redBurguer.nome}`);
 console.log(`Categoria da loja: ${redBurguer.categoria}`);
-console.log(`Nome da loja: ${suco.nome}`);
-console.log(`Categoria da loja: ${suco.categoria}`);
+redBurguer.criarLoja();
+const retornoLoja = redBurguer.emitirPedido(48, "X-Burguer", "X-Salada", "Coca-Cola");
+redBurguer.mudarStatus("ABERTO");
+console.log(retornoLoja);
