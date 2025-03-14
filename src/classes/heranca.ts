@@ -5,11 +5,20 @@
 
 // Modificador de acesso > public, private, protected, readonly.
 
+/* 
+    Protected > Atributos e metodos protegidos, só podem ser acessados dentro da classe ou de classes filhas.
+    Private > Atributos e metodos privados, só podem ser acessados dentro da classe.
+    Public > Atributos e metodos publicos, podem ser acessados de qualquer lugar.
+    Readonly > Atributos somente leitura, não podem ser alterados.
+*/
+
 class Usuario {
-  public nome: string;
+  protected id: number; // Podemos chamar na classe usuario ou classes que extendem de usuario.
+  nome: string;
   email: string;
 
-  constructor(nome: string, email: string) {
+  constructor(id: number, nome: string, email: string) {
+    this.id = id;
     this.nome = nome;
     this.email = email;
   }
@@ -17,27 +26,36 @@ class Usuario {
 
 // Supor que essa classe ADMIN herda de Usuario
 class Admin extends Usuario {
-  public cargo: string;
-  public nivel: number;
+  cargo: string;
+  nivel: number;
 
-  constructor(nome: string, email: string, cargo: string, nivel: number) {
+  constructor(
+    id: number,
+    nome: string,
+    email: string,
+    cargo: string,
+    nivel: number
+  ) {
     // super() é usado para acessar os atributos da classe pai.
     // não pode ser chamado por ultimo.
-    super(nome, email);
+    super(id, nome, email);
 
     this.cargo = cargo;
     this.nivel = nivel;
   }
 
-  public mudarCargo(): void {
-    console.log("ALTERANDO CARGO");
+  protected mudarCargo(cargo: string): void {
+    console.log(`ALTERANDO CARGO PARA: ${cargo}`);
+    console.log(`Id do usuario: ${this.id}`);
+  }
+
+  acessarAdmin() {
+    this.mudarCargo("Designer");
   }
 }
 
-const usuario1 = new Admin("Lucas", "lucas@teste", "Programador", 1);
+const usuario1 = new Admin(123, "Lucas", "lucas@teste", "Programador", 2);
 
-usuario1.cargo = "Desenvolvedor Full Stack";
+// usuario1.id; // Não é possivel acessar o id, pois ele é protected.
 
-console.log(usuario1);
-
-usuario1.mudarCargo();
+usuario1.acessarAdmin();
