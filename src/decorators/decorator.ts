@@ -14,11 +14,28 @@ GETTERS / SETTERS ( BEM POUCO USADO )
 // }
 
 // >> Padrão factory (Fabrica) | Função que vai retornar a criação do decorator.
-function logInfo(mensagem: string) {
+// function logInfo(mensagem: string) {
+//   return (target: any) => {
+//     console.log(`${mensagem}, ${target}`);
+//   };
+// }
+
+// @logInfo("Servidor está rodando!")
+// class Sistema {}
+
+/// ================= Praticando ================= ///
+
+function setIpServidor(novoIp: string) {
   return (target: any) => {
-    console.log(`${mensagem}, ${target}`);
+    // target é o construtor
+    return class extends target {
+      ip = novoIp;
+    };
   };
 }
 
-@logInfo("Servidor está rodando!")
-class Sistema {}
+@setIpServidor("192.168.50.900")
+class Servidor {}
+
+const servidor1 = new Servidor();
+console.log(servidor1);
